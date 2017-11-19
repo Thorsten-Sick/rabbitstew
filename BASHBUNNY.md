@@ -42,7 +42,7 @@ Copy files from payloads library to payloads/switch1
 |**|credentials|DumpCreds|locked ? Windows 10|pwd stealer|HID,RNDIS_ETHERNET, RNDIS_ETHERNET STORAGE||impacket tools, mimikatz, powerdump|
 ||credentials|JackRabbit|Windows|pwd stealer|HID STORAGE||mimikatz|
 ||credentials|macinfograbber|Mac|cred stealer|HID STORAGE|||
-||credentials|MrRobot|Windows|cred stealer|HID, RNDIS_ETHERNET||mimikatz/mimidogz|
+||credentials|MrRobot|unlocked Windows|cred stealer|HID, RNDIS_ETHERNET||mimikatz/mimidogz|
 |*|credentials|PasswordGrabber|Windows|pwd grabber|HID STORAGE||https://github.com/AlessandroZ/LaZagne (Pony style)|
 |**|credentials|QuickCreds|locked/unlocked Win/Mac/Lin||RNDIS_ETHERNET,ECM_ETHERNET ||responder required|
 ||credentials|SudoBackdoor|unlocked Mac/Lin||ECM_ETHERNET HID||second visit to loot|
@@ -58,17 +58,29 @@ Copy files from payloads library to payloads/switch1
 ||execution|RevShellBack|unlocked Windows|start reverse shell|RNDIS_ETHERNET HID|||
 |*|execution|ShellExec|unlocked Mac/Lin|Beef hooking|ECM_ETHERNET HID VID_0X05AC PID_0X021E|||
 ||execution|StickyBunny|unlocked Windows|allows admin login|HID|||
-||exfiltration|BlackBackup||||||
-||exfiltration|browserData||||||
-||exfiltration|FileInfoExfil||||||
-||exfiltration|ftp_exfiltrator||||||
-||exfiltration|MacPDFExfil||||||
-||exfiltration|Powershell_TCP_Extractor||||||
-||exfiltration|SmacAndGrab||||||
-||exfiltration|smb_exfiltrator||||||
-||exfiltration|usb_exfiltrator||||||
-|||||||||
-|||||||||
+||exfiltration|BlackBackup|unlocked Windows|Wlan/Logon credentials|HID STORAGE|||
+||exfiltration|BrowserData|unlocked Windows|browser history/bookmarks|HID STORAGE|||
+||exfiltration|FileInfoExfil|unlocked Windows|steal files matching a pattern|HID STORAGE|||
+||exfiltration|ftp_exfiltrator|unlocked Windows|exfil files to FTP|HID STORAGE|||
+||exfiltration|MacPDFExfil|unlocked Mac|steal PDFs to Storage|STORAGE HID VID_0X05AC PID_0X021E|||
+||exfiltration|Powershell_TCP_Extractor|unlocked Windows|steals data and sends to server|HID STORAGE|||
+||exfiltration|SmacAndGrab|unlocked Mac|steal list of files to storage|STORAGE HID VID_0X05AC PID_0X021E|||
+||exfiltration|smb_exfiltrator|unlocked Windows|exfiltrate files by SMB|HID, RNDIS_ETHERNET ||impacket|
+||exfiltration|usb_exfiltrator|unlocked Windows|exfiltrate files to Storage|HID STORAGE|||
+|**|exploitation|Metasploit-Autopwn|locked/unlocked Windows vs. network|run autopwn vs network connected client|RNDIS_ETHERNET||metasploit|
+||general|dryClean|BB|clean loot directory||||
+||general|DuckyTemplate|BB|run ducky scripts on BB||||
+||general|ExecutableInstaller|unlocked Windows|copy and start executable|HID STORAGE|||
+||general|GitBunnyGit|BB|update BB||||
+||general|InfiniteControl|unlocked all|keep hitting CTRL|HID|||
+||general|Proxy_Interceptor|unlocked Windows|import certificate to Windows|HID STORAGE|||
+||general|Windows_NIC_Sharing|unlocked Windows|setup networking for BB<->Windows|HID|||
+||Incident_Response|Hidden_Images|unlocked Windows|file magic finds image files|HID STORAGE|||
+||Incident_Response|Link_File_analysis|unlocked Windows|find strange lnk files|HID STORAGE|||
+||phishing|Captiveportal|active user Windows/Mac/Linux|fake captive portal to phish credentials|RNDIS_ETHERNET/ECM_ETHERNET|||
+||phishing|dns_poisoning_mac|unlocked mac|modifies hosts file|HID|||
+||phishing|Local_DNS_Poisoning|unlocked windows|modifies hosts file|HID|||
+||phishing|MacPhish|active user mac|create fake ui to phish root pwd|HID STORAGE|||
 |||||||||
 
 
