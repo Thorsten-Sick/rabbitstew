@@ -81,13 +81,50 @@ Copy files from payloads library to payloads/switch1
 ||phishing|dns_poisoning_mac|unlocked mac|modifies hosts file|HID|||
 ||phishing|Local_DNS_Poisoning|unlocked windows|modifies hosts file|HID|||
 ||phishing|MacPhish|active user mac|create fake ui to phish root pwd|HID STORAGE|||
-|||||||||
+||prank|90sMode|Unlocked Windows|sets screen resolution|HID STORAGE|||
+|* 1|prank|Ascii-Prank||displays ascii image|STORAGE HID VID_0X05AC PID_0X021E|||
+||prank|Bunny-Flip|unlocked Windows|flips screen|HID|||
+||prank|lockpc|unlocked lin/win/mac|writes lock tips|RNDIS_ETHERNET,ECM_ETHERNET, HID, HID VID_0x05AC PID_0x021E|||
+||prank|MacDesktop|unlocked mac|sets background|HID STORAGE 0xF000/0xFF02|||
+|* 1)|prank|NotepadFun|unlocked Windows|writes warning to notepad|HID|||
+||prank|Photo Booth Ugly Prank|unlocked Mac|takes photo and insults|HID VID_0X05AC PID_0X021E|||
+||prank|RAZ_ThemeChanger|unlocked Windows|sets windows theme|HID STORAGE|||
+||prank|Rickroll|unlocked Windows|HID, RNDIS_ETHERNET||||
+||prank|Unified RickRoll|unlocked Mac|display rickroll|HID VID_0X05AC PID_0X021E|||
+||prank|Unified RickRoll Windows|unlocked Windows|display rickroll|HID VID_0X05AC PID_0X021E|||
+||prank|win93|unlocked lin/mac/win|open browser and nmap scan|ECM_ETHERNET, RNDIS_ETHERNET, HID|||
+||recon|InfoGrabber|unlocked Windows|grab system info|HID STORAGE|||
+||recon|Link_File_analysis|unlocked Windows|get lnk file data|HID STORAGE|||
+||recon|MacGetUser|unlocked mac|list mac users|HID VID_0X05AC PID_0X021E STORAGE|||
+|*2|recon|MacProfiler|unlocked mac|exfiltrate system info||||
+|*1|recon|nmapper|win/lin/mac|scan target with nmap|RNDIS_ETHERNET, ECM_ETHERNET|||
+||recon|PrivEscChecker|unlocked windows|check windows boxes for privilege escalation vuls|HID STORAGE|||
+||recon|ProcessInfo|unlocked windows|return all running processes|HID STORAGE|||
+||recon|rdp_checker|windows|check if rdp is enabled on target|RNDIS_ETHERNET, ECM_ETHERNET||impacket|
+|*1|remote access|LinuxReverseShell|unlocked Linux|start reverse shell|HID STORAGE|||
+|*3|remote access|MacReverseShell|unlocked mac|python reverse shell|HID VID_0X05AC PID_0X021E|||
+||remote access|NothingLess|unlocked windows| shares foilder |HID STORAGE|||
+||remote access|RAZ_MacReverseShell|mac|bash persistent reverse shell|HID|||
+||remote access|RAZ_ReverseShell|unlocked windows|nc reverse shell|HID STORAGE|||
+|**2|remote access|SingleSecondShell|unlocked windows|metasploit reverse shell|HID STORAGE||metasploit/armitage|
+| 2 ?|remote access|UndercoverBunny|unlocked windows|creates wifi network|HID|||
+||remote access|USB_Intruder|unlocked windows|in depth infection + meterpreter reverse shell|HID STORAGE||metasploit|
+||remote access|WindowsMeterpreterStaged|unlocked windows|download and exectute meterpreter|HID||metasploit|
+||remote access|Win_x64_JS_Rev_Meter|unlocked windows|js meterpreter|HID||metasploit|
+||sFTP Directory Grabber||unlocked windows|data exfiltration by ftp|HID STORAGE|||
 
 
+1) Good for testing, because simple
+2) replicate something like that for Linux as POC attack
+3) Check if it can be used on linux
 
+Stars:
+* complex attacks
+* vs. Linux
+* Things that worked logged in / without login
 
+These are the criteria for the stars.
 
-Stars: I am working on Linux, Windows only attacks will get less stars
 
 
 ### Empire Framework
