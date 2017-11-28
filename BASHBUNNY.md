@@ -30,6 +30,43 @@ Now replaced by bash bunny updater tool
 
 Copy files from payloads library to payloads/switch1
 
+
+## TIL
+
+* There are no storage only attacks
+* Most attacks require an unlocked account
+* Some attacks work on locked PCs - with network device simulation. Those are the advanced ones
+* Windows is better supported than Mac which is > Linux
+* BadUSB: attack can be implemented in any form factor device ! Not just USB-stick-sized-computers
+* can be worm-able
+* Thumb drive can detect booting, have OS to boot from... and hide it when system is live (can not be handled by Gnome SW)
+
+## Attack scenarios
+
+1) Eliot sneaks into the building, attaches USB device to (unlocked) PC, waits 20 seconds, sneaks out
+2) Firmware of USB device is "upgraded" with extra features, victim attaches that himself
+3) Attacker can recon first, find USB types being used and use those device IDs...
+4) Worms, spreading through USB devices: How reliable is infection ? Maybe not relevant right now
+
+
+# Details
+
+## Attack Matrix
+
+||Linux|Mac|Windows|Comment|
+|----|-----|---|-------|-|
+|PWD stealer|-|X|X|
+|Dump and Execute|-|-|X|
+|Hack browser/cookies/Beef|X|X|X| (BunnyTap)
+|steal Wifi Creds|-|-|X|
+|Reverse Shell|X|X|X|
+|recon system|-|X|X|
+|recon network|X|X|X|nmapper|
+|steal files|-|X|X|
+|Credential phishing|X|X|X|
+
+Conclusion: BashBunny does not support Linux very well. But many attacks would be as simple as for Windows and Mac....gotta try to write some attacks (for testing and to be there before the bad guys are)
+
 ## Payloads
 
 |Stars|Path|Name|OS|Actions|USB devices|Potential Improvements|Comments|
@@ -40,10 +77,10 @@ Copy files from payloads library to payloads/switch1
 ||credentials|BruteBunny|unlocked Windows vs routers|brute force local router|HID STORAGE|
 |***|credentials|BunnyTap|locked Win/Mac/Lin|hack browser|RNDIS_ETHERNET/ECM_ETHERNET||uses DNSSpoof, https://samy.pl/poisontap/|
 |**|credentials|DumpCreds|locked ? Windows 10|pwd stealer|HID,RNDIS_ETHERNET, RNDIS_ETHERNET STORAGE||impacket tools, mimikatz, powerdump|
-||credentials|JackRabbit|Windows|pwd stealer|HID STORAGE||mimikatz|
-||credentials|macinfograbber|Mac|cred stealer|HID STORAGE|||
+||credentials|JackRabbit|unlocked Windows|pwd stealer|HID STORAGE||mimikatz|
+||credentials|macinfograbber|unlocked Mac|cred stealer|HID STORAGE|||
 ||credentials|MrRobot|unlocked Windows|cred stealer|HID, RNDIS_ETHERNET||mimikatz/mimidogz|
-|*|credentials|PasswordGrabber|Windows|pwd grabber|HID STORAGE||https://github.com/AlessandroZ/LaZagne (Pony style)|
+|*|credentials|PasswordGrabber|unlocked Windows|pwd grabber|HID STORAGE||https://github.com/AlessandroZ/LaZagne (Pony style)|
 |**|credentials|QuickCreds|locked/unlocked Win/Mac/Lin||RNDIS_ETHERNET,ECM_ETHERNET ||responder required|
 ||credentials|SudoBackdoor|unlocked Mac/Lin||ECM_ETHERNET HID||second visit to loot|
 ||credentials|WifiCreds|unlocked Windows|Steals Wifi Creds|HID STORAGE|||
@@ -104,7 +141,7 @@ Copy files from payloads library to payloads/switch1
 |*1|remote access|LinuxReverseShell|unlocked Linux|start reverse shell|HID STORAGE|||
 |*3|remote access|MacReverseShell|unlocked mac|python reverse shell|HID VID_0X05AC PID_0X021E|||
 ||remote access|NothingLess|unlocked windows| shares foilder |HID STORAGE|||
-||remote access|RAZ_MacReverseShell|mac|bash persistent reverse shell|HID|||
+||remote access|RAZ_MacReverseShell|unlocked mac|bash persistent reverse shell|HID|||
 ||remote access|RAZ_ReverseShell|unlocked windows|nc reverse shell|HID STORAGE|||
 |**2|remote access|SingleSecondShell|unlocked windows|metasploit reverse shell|HID STORAGE||metasploit/armitage|
 | 2 ?|remote access|UndercoverBunny|unlocked windows|creates wifi network|HID|||
@@ -145,3 +182,13 @@ https://www.youtube.com/watch?v=Ei6YhehET3Y
 
 Password Grabber Bash Bunny Payload - Hak5 2305
 https://www.youtube.com/watch?v=LtqsKftRFiw
+
+# BadUSB and similar
+
+## BadUSB
+
+By Karsten Nohl and Jakob Lell
+
+https://opensource.srlabs.de/projects/badusb
+
+Blackhat USA 2014: https://www.youtube.com/watch?v=nuruzFqMgIw
