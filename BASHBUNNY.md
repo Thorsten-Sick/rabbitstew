@@ -40,6 +40,8 @@ Copy files from payloads library to payloads/switch1
 * BadUSB: attack can be implemented in any form factor device ! Not just USB-stick-sized-computers
 * can be worm-able
 * Thumb drive can detect booting, have OS to boot from... and hide it when system is live (can not be handled by Gnome SW)
+* Blocking USB additions when no user is logged in only blocks the network attacks
+* Most of the attacks use HID (keyboard)
 
 ## Attack scenarios
 
@@ -47,6 +49,11 @@ Copy files from payloads library to payloads/switch1
 2) Firmware of USB device is "upgraded" with extra features, victim attaches that himself
 3) Attacker can recon first, find USB types being used and use those device IDs...
 4) Worms, spreading through USB devices: How reliable is infection ? Maybe not relevant right now
+
+## Error cases where the computer has to still work
+
+1) keyboard is broke (coffee), replace it => keyboard-less verification for newly attached USB devices. Even when screen is locked
+2) ...well, as soon as there is a keyboard people can log in and confirm new usb devices....
 
 
 # Details
