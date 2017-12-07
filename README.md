@@ -23,3 +23,8 @@ https://dkopecek.github.io/usbguard/
 
 Disable USB on lock screen:
 https://wiki.gnome.org/Outreach/SummerOfCode/2015/Ideas
+
+USBGuard GNOME:
+https://github.com/k00n/usbguard-gnome
+(Muelli pointed me there)
+A Gnome GUI for USB Guard (which is in the Ubuntu repo but bot very smart)
